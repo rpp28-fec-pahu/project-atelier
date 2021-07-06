@@ -751,93 +751,65 @@ html {
 
 /* --------------------- RATINGS AND REVIEWS --------------------- */
 
-/* Overall Ratings and Reviews */
-.review-overall-container {
+/* ----- Overall Ratings and Reviews ----- */
+#review-overall-container {
   font-family: arial, sans-serif;
   color: rgb(94, 86, 86);
   margin: 40px 10% 0 10%;
-  /* height: 100%;
-  overflow: auto; */
   overflow: hidden;
 }
 
-/* Containers */
-.review-overall-container > * {
-  margin: 1% 0;
-}
-
-.review-content-container {
-  display: flex;
-}
-
-.review-content-container > *{
-  margin: 1% 0;
-}
-
-.review-sub-container {
-  flex: 1;
-}
-
-.review-sub-container:first-child {
-  margin-right: 20px;
-}
-
-#review-left-container {
-  flex-basis: 10rem;
+/* ----- Containers ----- */
+#review-content-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  justify-items: auto;
 }
 
 #review-left-container > * {
-  margin-bottom: 5%;
+  margin: 2% 0 5% 0;
 }
 
 #review-right-container {
-  flex-basis: 50rem;
   height: 100%;
   overflow: auto;
 }
 
 #review-right-container > * {
-  margin-bottom: 2%;
-  margin-left: 2%;
+  margin: 2% 0 2% 2%;
 }
 
-/* Rating Breakdown */
-.review-rating-breakdown {
-  padding-bottom: 8%;
-}
-
-.review-rating-breakdown > * {
-  margin-bottom: 5%;
-}
-
-.review-average-rating > * {
-  margin-right: 3%;
-}
-
-.review-average-rating-number {
-  font-size: 300%;
-}
-
-.review-filter-panel {
-  margin: 1%;
+/* ----- Rating Breakdown ----- */
+#review-rating-breakdown-overall-container {
+  margin-bottom: 10%;
   font-size: 95%;
 }
 
-.review-filter-panel > * {
-  margin: 1%;
-  padding: 1%;
+#review-rating-breakdown-overall-container > * {
+  margin-bottom: 5%;
 }
 
-#review-filter-panel-title {
+#review-average-rating-container > * {
+  margin-right: 3%;
+}
+
+#review-average-rating-number {
+  font-size: 300%;
+}
+
+#review-filter-summary-container > * {
+  margin-bottom: 3%;
+}
+
+#review-filter-summary-title {
   text-align: center;
   font-weight: bold;
 }
 
-.review-rating-bar {
+#review-rating-bar-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: 95%;
 }
 
 .review-breakdown-bar {
@@ -863,42 +835,36 @@ progress::-webkit-progress-value {
   border-radius: 20px;
 }
 
-.review-breakdown-freq {
-  text-decoration: none;
-}
-
 /* Product Breakdown */
-.review-product-breakdown > * {
+#review-product-breakdown-overall-container > * {
   margin-bottom: 5%;
   padding: 2%;
 }
 
-.review-product-breakdown-container {
+.review-product-chracteristic-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.review-product-chracteristic-container > * {
+  text-align: center;
+  font-size: 80%;
 }
 
 .review-product-characteristic-name {
   font-style: italic;
 }
 
-.review-product-breakdown-container > * {
-  text-align: center;
+.review-product-breakdown-bar {
+  width: 100%;
+  margin: 3% 0;
 }
 
-.review-product-breakdown-description-container {
+.review-product-description-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
-}
-
-.review-product-breakdown-description {
-  font-size: 80%;
-}
-
-.review-product-breakdown-bar {
-  width: 100%;
 }
 
 input[type=range] {
@@ -928,9 +894,9 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 /* Search */
-.review-search-bar {
+#review-search-bar {
   width: 100%;
-  padding: 10px 0px 10px;
+  padding: 10px;
 }
 
 /* Sorting Options */
@@ -941,18 +907,14 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 /* Reviews List & Tiles */
-.reviews-list {
+#reviews-list-overall-container {
   overflow: hidden;
 }
 
-.reviews-list-tiles {
+#reviews-list-tile-container {
   width: 100%;
   overflow: auto;
-  max-height: 54vh;
-}
-
-.reviews-list-tiles > * {
-  margin-bottom: 1%;
+  max-height: 60vh;
 }
 
 .review-tile {
@@ -963,6 +925,7 @@ input[type=range]::-webkit-slider-thumb {
   height: 220px;
   border-bottom: solid black 0.1em;
   padding: 1% 0;
+  margin-bottom: 1%;
 }
 
 .review-tile > * {
@@ -983,14 +946,8 @@ input[type=range]::-webkit-slider-thumb {
   font-weight: bold;
 }
 
-.review-body {
+.review-body, .review-additional-body {
   font-size: 90%;
-  word-wrap: break-word;
-  white-space: pre-line;
-}
-
-.review-additional-body {
-  font-size: 80%;
   word-wrap: break-word;
   white-space: pre-line;
 }
@@ -1006,7 +963,7 @@ input[type=range]::-webkit-slider-thumb {
   cursor: pointer;
 }
 
-.review-photo-modal {
+.review-photo-modal, #review-form-modal {
   position: fixed;
   left: 0;
   top: 0;
@@ -1024,13 +981,13 @@ input[type=range]::-webkit-slider-thumb {
   background: #fff;
 }
 
-.user-recommend:before {
+.review-user-recommend:before {
   content: '\f00c';
   font-family: FontAwesome;
   padding-right: 1%;
 }
 
-.seller-response {
+.review-seller-response {
   background-color: rgb(226, 215, 215);
   padding: 1%;
 }
@@ -1091,20 +1048,7 @@ input[type=range]::-webkit-slider-thumb {
   font-size: 90%;
 }
 
-.review-form-modal {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2
-}
-
-.review-form-modal-content {
+#review-form-modal-content {
   width: 700px;
   background: #fff;
   padding: 2%;
@@ -1112,7 +1056,7 @@ input[type=range]::-webkit-slider-thumb {
   max-height: 70vh;
 }
 
-.review-form-modal-content > *{
+#review-form-modal-content > *{
   padding: 1%;
   margin: 1%;
 }
@@ -1134,6 +1078,7 @@ input[type=range]::-webkit-slider-thumb {
 
 .review-form-characteristic-name {
   font-style: italic;
+  padding: 1% 0;
 }
 
 .review-form-characteristic-description {
@@ -1160,10 +1105,6 @@ input[type=range]::-webkit-slider-thumb {
   cursor: auto;
 }
 
-.review-form-characteristic-name {
-  padding: 1% 0;
-}
-
 #review-form-body {
   font-family: arial, sans-serif;
   resize: none;
@@ -1174,13 +1115,13 @@ input[type=range]::-webkit-slider-thumb {
   font-size: 90%;
 }
 
-.review-form-modal-header {
+#review-form-modal-header {
   font-size: 120%;
   font-weight: bold;
   border-bottom: solid black 0.1em;
 }
 
-.review-form-modal-header > * {
+#review-form-modal-header > * {
   margin: 1%;
 }
 
@@ -1188,14 +1129,18 @@ input[type=range]::-webkit-slider-thumb {
   font-weight: bold;
 }
 
-.review-form-modal-body > * {
+#review-form-modal-body > * {
   padding: 1% 0;
   margin-bottom: 1% 0;
 }
 
-.review-form-modal-body > * > *{
+#review-form-modal-body > * > * {
   padding: 1% 0;
-  margin-bottom: 1% 0;
+  margin-bottom: 15% 0;
+}
+
+#review-form-submit-button {
+  padding: 10px;
 }
 
 .review-form-invalid-warning {
